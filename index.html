@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
   <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   <!-- CSS -->
@@ -16,17 +15,35 @@
   <title>Frontend Mentor | Newsletter sign-up form with success message</title>
 </head>
 <body>
+  <main class="container">
+    <section class="newsletter">
+        <h1 class="newsletter_title">Stay updated!</h1>
+        <p class="newsletter_text">Join 60,000+ product managers receiving monthly updates on:</p>
+        <ul>
+            <li>Product discovery and building what matters</li>
+            <li>Measuring to ensure updates are a success</li>
+            <li>And much more!</li>
+        </ul>
+        <label for="email">Email address</label>
+        <small class="error"></small>
+        <input type="email" name="email" id="email" placeholder="email@company.com" required>
+        <button class="btn-subscribe" type="submit">Subscribe to monthly newsletter</button>
+    </section>
+    <div class="newsletter_img">
+        <picture>
+            <source media="(min-width: 750px)" srcset="./assets/images/illustration-sign-up-desktop.svg">
+        <img src="./assets/images/illustration-sign-up-mobile.svg" alt="news">
+    </picture>
+    </div>
+  </main>
 
-  <!-- Sign-up form start -->
-  <>
+  
 
-  Stay updated!
+  
 
-  Join 60,000+ product managers receiving monthly updates on:
-
-  Product discovery and building what matters
-  Measuring to ensure updates are a success
-  And much more!
+  
+  
+  
 
   Email address
   email@company.com
