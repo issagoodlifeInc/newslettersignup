@@ -1,73 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  <!-- CSS -->
-  <link rel="stylesheet" href="./assets/styles.css">
-  <!-- Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="./assets/styles.css" />
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
 
-  <title>Frontend Mentor | Newsletter sign-up form with success message</title>
-</head>
-<body>
-  <main class="container">
-    <section class="newsletter">
+    <title>
+      Frontend Mentor | Newsletter sign-up form with success message
+    </title>
+  </head>
+  <body>
+    <main class="container">
+      <section class="newsletter">
         <h1 class="newsletter_title">Stay updated!</h1>
-        <p class="newsletter_text">Join 60,000+ product managers receiving monthly updates on:</p>
+        <p class="newsletter_text">
+          Join 60,000+ product managers receiving monthly updates on:
+        </p>
         <ul>
-            <li>Product discovery and building what matters</li>
-            <li>Measuring to ensure updates are a success</li>
-            <li>And much more!</li>
+          <li>Product discovery and building what matters</li>
+          <li>Measuring to ensure updates are a success</li>
+          <li>And much more!</li>
         </ul>
         <label for="email">Email address</label>
-        <small class="error"></small>
-        <input type="email" name="email" id="email" placeholder="email@company.com" required>
-        <button class="btn-subscribe" type="submit">Subscribe to monthly newsletter</button>
-    </section>
-    <div class="newsletter_img">
+        <small class="error">eee</small>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="email@company.com"
+          required
+        />
+        <button class="btn-subscribe" type="submit">
+          Subscribe to monthly newsletter
+        </button>
+      </section>
+      <div class="newsletter_img">
         <picture>
-            <source media="(min-width: 750px)" srcset="./assets/images/illustration-sign-up-desktop.svg">
-        <img src="./assets/images/illustration-sign-up-mobile.svg" alt="news">
-    </picture>
+          <source
+            media="(min-width: 750px)"
+            srcset="./assets/images/illustration-sign-up-desktop.svg"
+          />
+          <img
+            src="./assets/images/illustration-sign-up-mobile.svg"
+            alt="news"
+          />
+        </picture>
+      </div>
+    </main>
+
+    <!-- Thanks part -->
+    <section class="thanks">
+      <img src="./assets/images/icon-success.svg" alt="" />
+      <h1 class="thanks_title">Thanks for subscribing!</h1>
+      <p class="thanks_text">
+        A confirmation email has been sent to <span></span> Please open it and
+        click the button inside to confirm your subscription.
+      </p>
+
+      <button>Dismiss message</button>
+    </section>
+    <!-- Thanks part -->
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Lesley Kimutai</a>.
     </div>
-  </main>
-
-  
-
-  
-
-  
-  
-  
-
-  Email address
-  email@company.com
-
-  Subscribe to monthly newsletter
-
-  <!-- Sign-up form end -->
-
-  <!-- Success message start -->
-
-  Thanks for subscribing!
-
-  A confirmation email has been sent to ash@loremcompany.com. 
-  Please open it and click the button inside to confirm your subscription.
-
-  Dismiss message
-
-  </>
-  <!-- Success message end -->
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Lesley Kimutai</a>.
-  </div>
-  <script src="./assets/main.js"></script>
-</body>
+    <script src="./assets/main.js"></script>
+  </body>
 </html>
