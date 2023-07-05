@@ -74,6 +74,43 @@ label,
   float: right;
 }
 
+input::placeholder {
+  color: var(--Grey);
+}
+
+input {
+  padding-block: 0.5rem;
+  padding-inline-start: 0.3rem;
+  border: 1px solid var(--Grey);
+  border-radius: 5px;
+  outline: 0;
+  font-family: inherit;
+  margin-block: 0.2rem;
+}
+
+input:hover,
+input:focus {
+  color: var(--DarkSlateGrey);
+  border: 1.5px solid var(--DarkSlateGrey);
+}
+
+.btn-subscribe {
+  padding-block: 1rem;
+  color: var(--White);
+  font-family: inherit;
+  background-color: var(--DarkSlateGrey);
+  border: none;
+  border-radius: 5px;
+  margin-block-start: 1rem;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: all 200ms ease-in;
+}
+
+.btn-subscribe:hover {
+  background-color: var(--Tomato);
+}
+
 .thanks {
   display: none;
 }
