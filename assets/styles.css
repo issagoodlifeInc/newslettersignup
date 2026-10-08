@@ -160,13 +160,17 @@ input:focus {
   margin-block-start: auto;
 }
 
-@media screen and (width <= 375px) {
+@media screen and (width <= 650px) {
   body {
     background-color: var(--White);
   }
+
+  img{
+    margin-inline: auto;
+  }
 }
 
-@media screen and (width > 750px) {
+@media screen and (width > 651px) {
   body {
     min-height: 100vh;
     display: flex;
@@ -199,8 +203,8 @@ input:focus {
   text-decoration-thickness: 2px;
 }
 
-@media screen and (max-width: 750px) {
-  .newsletter {
+@media screen and (max-width: 650px) {
+  .newsletter h1, .newsletter p, .newsletter ul, .newsletter input, .newsletter .newsletter_img {
     text-align: center;
   }
 
@@ -209,13 +213,13 @@ input:focus {
   .signup-form {
     width: 80%;
     margin-inline: auto;
+    padding-block: .7rem;
   }
 
   .newsletter ul {
     padding-inline-start: 1.25rem;
   }
 
-  .signup-form label,
   .signup-form .error {
     display: block;
     float: none;
