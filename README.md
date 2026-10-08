@@ -28,6 +28,11 @@ The responsive `<picture>` element serves the supplied desktop illustration at l
 
 This is a front-end demonstration: submitting the form displays the confirmation state but does not send or store an email address.
 
+### Links
+
+- Solution URL: [GitHub Link](https://github.com/issagoodlifeInc/newslettersignup.git)
+- Live Site URL: [Netlify Deploy]()
+
 ## Run locally
 
 Open `index.html` in a browser. For local development, serve the project directory with any static file server.
