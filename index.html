@@ -3,26 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Favicon -->
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
       href="./assets/images/favicon-32x32.png"
     />
-    <!-- CSS -->
     <link rel="stylesheet" href="./assets/styles.css" />
-    <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
       rel="stylesheet"
     />
-
-    <title>
-      Frontend Mentor | Newsletter sign-up form with success message
-    </title>
+    <title>Frontend Mentor | Newsletter sign-up form with success message</title>
   </head>
   <body>
     <main class="container">
@@ -36,51 +30,55 @@
           <li>Measuring to ensure updates are a success</li>
           <li>And much more!</li>
         </ul>
-        <label for="email">Email address</label>
-        <small class="error">eee</small>
-        <input
-          type="email"
-          name="email"
-          id="email"
-          placeholder="email@company.com"
-          required
-        />
-        <button class="btn-subscribe" type="submit">
-          Subscribe to monthly newsletter
-        </button>
+        <form class="signup-form" novalidate>
+          <label for="email">Email address</label>
+          <small class="error" id="email-error" aria-live="polite"></small>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="email@company.com"
+            autocomplete="email"
+            aria-describedby="email-error"
+            required
+          />
+          <button class="btn-subscribe" type="submit">
+            Subscribe to monthly newsletter
+          </button>
+        </form>
       </section>
       <div class="newsletter_img">
         <picture>
           <source
-            media="(min-width: 750px)"
+            media="(min-width: 650px)"
             srcset="./assets/images/illustration-sign-up-desktop.svg"
           />
           <img
             src="./assets/images/illustration-sign-up-mobile.svg"
-            alt="news"
+            alt="A dashboard with charts and product analytics"
           />
         </picture>
       </div>
     </main>
 
-    <!-- Thanks part -->
-    <section class="thanks">
+    <section class="thanks" aria-labelledby="thanks-title" hidden>
       <img src="./assets/images/icon-success.svg" alt="" />
-      <h1 class="thanks_title">Thanks for subscribing!</h1>
+      <h1 class="thanks_title" id="thanks-title" tabindex="-1">
+        Thanks for subscribing!
+      </h1>
       <p class="thanks_text">
-        A confirmation email has been sent to <span></span> Please open it and
-        click the button inside to confirm your subscription.
+        A confirmation email has been sent to
+        <strong class="submitted-email"></strong>. Please open it and click the
+        button inside to confirm your subscription.
       </p>
-
-      <button>Dismiss message</button>
+      <button class="btn-dismiss" type="button">Dismiss message</button>
     </section>
-    <!-- Thanks part -->
 
     <div class="attribution">
       Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noreferrer"
         >Frontend Mentor</a
-      >. Coded by <a href="#">Lesley Kimutai</a>.
+      >. Coded by <a href="https://lesleykimutai.netlify.app/" target="_blank" rel="noreferrer">Lesley Kimutai</a>.
     </div>
     <script src="./assets/main.js"></script>
   </body>
