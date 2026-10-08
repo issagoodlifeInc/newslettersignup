@@ -31,7 +31,7 @@ This is a front-end demonstration: submitting the form displays the confirmation
 ### Links
 
 - Solution URL: [GitHub Link](https://github.com/issagoodlifeInc/newslettersignup.git)
-- Live Site URL: [Netlify Deploy]()
+- Live Site URL: [Netlify Deploy](https://newslettersignuplkn.netlify.app/)
 
 ## Run locally
 
