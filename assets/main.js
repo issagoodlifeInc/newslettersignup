@@ -7,6 +7,12 @@ const submittedEmail = document.querySelector(".submitted-email");
 const successTitle = document.querySelector("#thanks-title");
 const dismissButton = document.querySelector(".btn-dismiss");
 
+// type="email" alone accepts addresses with no real domain, e.g.
+// "ash@loremcompany" and "a@b.c", so require a dot plus a TLD of
+// at least two characters after the @. This is the gate for the
+// success screen, not the browsers built-in validity check.
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
 function setEmailError(message) {
   emailError.textContent = message;
   emailInput.setAttribute("aria-invalid", String(Boolean(message)));
@@ -29,7 +35,7 @@ form.addEventListener("submit", (event) => {
     return;
   }
 
-  if (!emailInput.validity.valid) {
+  if (!EMAIL_PATTERN.test(email)) {
     setEmailError("Please enter a valid email address");
     emailInput.focus();
     return;
