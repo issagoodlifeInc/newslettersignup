@@ -39,6 +39,7 @@ before/after contrast ratios and what was verified, is in [FIX_REPORT.md](./FIX_
 - **650–651px broken:** the queries are now `max-width: 40.625em` (650px) and `min-width: 40.6875em` (651px), and the `<picture>` source breakpoint is `min-width: 651px` — no width is left without a layout (`assets/styles.css`, `index.html`).
 - **Contrast and focus:** error text darkened to `hsl(4, 100%, 42%)` (2.94:1 -> 5.35:1) and the placeholder to `hsl(231, 7%, 45%)` (3.01:1 -> 5.12:1), same hues; the script-focused success heading gets `outline: none` (`assets/styles.css`).
 - **Report warnings:** `float: right` on the error removed (label and error now share a flex row), media queries use `em` units, card/illustration/footer sizes use `rem`, and the footer rules were reordered least to most specific.
+- **Automated checks (Nov 26):** html-validate now passes with 0 errors (void elements no longer self-closed), the two remaining selector-order issues are fixed, and the last layout px values are now rem. axe-core shows 0 violations and eslint passes clean. Full detail is in [FIX_REPORT.md](./FIX_REPORT.md) under "Automated checks pass". Two things were deliberately left: the stylesheet is still desktop-first rather than mobile-first (an info-level suggestion, and a redesign), and stylelint-config-standard's naming conventions (PascalCase variables/classes) were not renamed, since Frontend Mentor's own report never flagged them.
 
 ### Links
 

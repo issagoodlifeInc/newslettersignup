@@ -96,7 +96,7 @@ input {
   padding-block: 0.5rem;
   padding-inline-start: 0.3rem;
   border: 1px solid var(--Grey);
-  border-radius: 5px;
+  border-radius: 0.3125rem;
   outline: 0;
   font-family: inherit;
   margin-block: 0.2rem;
@@ -119,11 +119,15 @@ input:focus {
   font-family: inherit;
   background-color: var(--DarkSlateGrey);
   border: none;
-  border-radius: 5px;
+  border-radius: 0.3125rem;
   margin-block-start: 1rem;
   font-weight: 700;
   font-size: 1rem;
   transition: all 200ms ease-in;
+}
+
+.btn-dismiss {
+  margin-block-start: auto;
 }
 
 .btn-subscribe:hover,
@@ -132,12 +136,6 @@ input:focus {
   box-shadow: 0 1rem 1.75rem rgb(255 98 87 / 38%);
 }
 
-.btn-subscribe:focus-visible,
-.btn-dismiss:focus-visible,
-.attribution a:focus-visible {
-  outline: 3px solid var(--Tomato);
-  outline-offset: 4px;
-}
 
 .thanks {
   display: none;
@@ -175,9 +173,6 @@ input:focus {
   overflow-wrap: anywhere;
 }
 
-.btn-dismiss {
-  margin-block-start: auto;
-}
 
 .attribution {
   font-size: 0.6875rem;
@@ -190,7 +185,14 @@ input:focus {
 }
 
 .attribution a:hover {
-  text-decoration-thickness: 2px;
+  text-decoration-thickness: 0.125rem;
+}
+
+.btn-subscribe:focus-visible,
+.btn-dismiss:focus-visible,
+.attribution a:focus-visible {
+  outline: 3px solid var(--Tomato);
+  outline-offset: 0.25rem;
 }
 
 /* Mobile: 650px = 40.625em (em units in media queries). */
@@ -273,7 +275,7 @@ input:focus {
     flex-direction: row;
     background-color: var(--White);
     padding: 1.5rem;
-    border-radius: 10px;
+    border-radius: 0.625rem;
     /* Design card is 928 x 641px; was 700px, so the illustration shrank. */
     max-width: 58rem;
     margin-inline: auto;

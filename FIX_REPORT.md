@@ -133,3 +133,57 @@ hsl(4, 100%, 42%)` for the error (2.94:1 -> 5.35:1 on white) and
 - `index.html` — picture breakpoint 651px, label/error flex-row wrapper.
 - `README.md` — Fixes section (summary of this report).
 - `FIX_REPORT.md` — this file.
+
+## Automated checks pass (Nov 26, 2026)
+
+Lesley asked for the automated checks to pass — the Frontend Mentor
+automated reports (axe-core for accessibility, html-validate for HTML,
+stylelint for CSS, eslint for JavaScript). Frontend Mentor's own detailed
+report is private to Lesley's account, so the exact "8 issues" list could
+not be read from the site; the same four tools were run locally on this
+branch instead, and the concrete findings were fixed here.
+
+Checks run on this branch (head `b71e01c`, before these fixes):
+
+| Check | Result before | Result after |
+|---|---|---|
+| html-validate (default/recommended config) on `index.html` | 11 errors, all `void-style` — self-closing void elements (`<meta/>`, `<link/>`, `<input/>`, `<source/>`, `<img/>`) | **0 errors** |
+| axe-core (WCAG 2A/2AA + best practice, jsdom) | 0 violations, 31 passes, 3 incomplete | **0 violations, 31 passes** (same 3 incomplete — jsdom cannot compute colour contrast, and it mis-reports the existing `<main>`/`<h1>` as incomplete; both are present in the markup) |
+| eslint (`@eslint/js` recommended) on `assets/main.js` | 0 errors | **0 errors** |
+| stylelint (`stylelint-config-standard`) on `assets/styles.css` | 58 errors | 56 errors — the 2 fixed below are gone; the rest are naming/notation conventions (see note) |
+
+### Fixed in this pass
+
+- **HTML void-style (11 errors):** removed the self-closing `/` from
+  every void element in `index.html` (`<meta>`, `<link>`, `<input>`,
+  `<source>`, `<img>`). Valid HTML5, no visual change.
+- **Selector order (2 errors, `no-descending-specificity` — the same
+  rule Frontend Mentor's CSS report flagged):** `.btn-dismiss` now sits
+  with the base button rules, before the `:hover` rules; the
+  `:focus-visible` rule now sits after `.attribution a`, so no
+  lower-specificity selector follows a higher-specificity one.
+- **Remaining absolute units:** `border-radius: 5px` -> `0.3125rem`
+  (x2), `border-radius: 10px` -> `0.625rem`,
+  `outline-offset: 4px` -> `0.25rem`,
+  `text-decoration-thickness: 2px` -> `0.125rem`. Only hairline
+  borders remain in px (`1px`, `1.5px`, `3px` outline), which is the
+  normal convention for hairlines.
+
+### Not changed, and why
+
+- The remaining 56 stylelint-config-standard errors are naming and
+  notation conventions (PascalCase custom properties and class names
+  such as `--Tomato` / `.newsletter_title`, legacy `hsl()` notation,
+  quotes around `"Roboto"`, media-feature range notation).
+  Frontend Mentor's own CSS report never flagged these — its flagged
+  rules were float, em/rem media queries, relative units, selector
+  order, CSS functions, CSS variables and mobile-first, all of which
+  are now addressed except mobile-first (below). Renaming every
+  variable and class would churn the whole file and risk breaking the
+  JavaScript hooks (`.btn-dismiss`, `.thanks`, etc.), so it was left
+  alone.
+- **Mobile-first:** the stylesheet is still desktop-first with a
+  `max-width` mobile query plus a `min-width` desktop query. The
+  Frontend Mentor item was info-level ("consider using min-width
+  instead of max-width"), and converting the whole file to mobile-first
+  is a redesign, not a fix — left for a later pass if Lesley wants it.
