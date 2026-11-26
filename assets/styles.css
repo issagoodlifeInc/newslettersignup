@@ -7,9 +7,13 @@
 
 :root {
   --Tomato: hsl(4, 100%, 67%);
+  /* Darkened, same hue as --Tomato: 2.94:1 -> 5.35:1 on white, passes 4.5:1. */
+  --TomatoDark: hsl(4, 100%, 42%);
   --DarkSlateGrey: hsl(234, 29%, 20%);
   --CharcoalGrey: hsl(235, 18%, 26%);
   --Grey: hsl(231, 7%, 60%);
+  /* Darkened, same hue as --Grey: 3.01:1 -> 5.12:1 on white, passes 4.5:1. */
+  --GreyDark: hsl(231, 7%, 45%);
   --White: hsl(0, 0%, 100%);
 }
 
@@ -17,6 +21,7 @@ body {
   font-family: "Roboto", sans-serif;
   line-height: 1.5;
   background-color: var(--CharcoalGrey);
+  color: var(--DarkSlateGrey);
 }
 
 li {
@@ -58,6 +63,8 @@ main {
 
 .newsletter_title {
   font-size: clamp(1.5rem, 5vw, 2.5rem);
+  /* Was inheriting black; the design uses dark blue. */
+  color: var(--DarkSlateGrey);
 }
 
 .newsletter_text {
@@ -69,13 +76,20 @@ label,
   font-size: 0.7rem;
 }
 
+/* Label and error share one flex row instead of the old float: right. */
+.form-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
 .error {
-  color: var(--Tomato);
-  float: right;
+  color: var(--TomatoDark);
 }
 
 input::placeholder {
-  color: var(--Grey);
+  color: var(--GreyDark);
 }
 
 input {
@@ -151,6 +165,12 @@ input:focus {
   line-height: 1.05;
 }
 
+/* The success heading is focused by script (tabindex="-1"), not by
+   keyboard tabbing, so its default thick focus box is removed here. */
+.thanks_title:focus {
+  outline: none;
+}
+
 .thanks_text {
   overflow-wrap: anywhere;
 }
@@ -159,39 +179,10 @@ input:focus {
   margin-block-start: auto;
 }
 
-@media screen and (width <= 650px) {
-  body {
-    background-color: var(--White);
-  }
-
-  img{
-    margin-inline: auto;
-  }
-}
-
-@media screen and (width > 651px) {
-  body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 2rem;
-  }
-  main {
-    flex-direction: row;
-    background-color: var(--White);
-    padding: 1rem;
-    border-radius: 10px;
-    max-width: 700px;
-    margin-inline: auto;
-    align-items: center;
-    gap: 2rem;
-  }
-}
-
 .attribution {
-  font-size: 11px;
+  font-size: 0.6875rem;
   text-align: center;
+  color: var(--DarkSlateGrey);
 }
 
 .attribution a {
@@ -202,8 +193,21 @@ input:focus {
   text-decoration-thickness: 2px;
 }
 
-@media screen and (max-width: 650px) {
-  .newsletter h1, .newsletter p, .newsletter ul, .newsletter input, .newsletter .newsletter_img {
+/* Mobile: 650px = 40.625em (em units in media queries). */
+@media screen and (max-width: 40.625em) {
+  body {
+    background-color: var(--White);
+  }
+
+  img {
+    margin-inline: auto;
+  }
+
+  .newsletter h1,
+  .newsletter p,
+  .newsletter ul,
+  .newsletter input,
+  .newsletter .newsletter_img {
     text-align: center;
   }
 
@@ -212,7 +216,7 @@ input:focus {
   .signup-form {
     width: 80%;
     margin-inline: auto;
-    padding-block: .7rem;
+    padding-block: 0.7rem;
   }
 
   .newsletter ul {
@@ -235,10 +239,9 @@ input:focus {
     content: "";
   }
 
-  .signup-form .error {
-    display: block;
-    float: none;
-    text-align: center;
+  .form-label-row {
+    flex-direction: column;
+    align-items: center;
   }
 
   .thanks:not([hidden]) {
@@ -251,5 +254,55 @@ input:focus {
 
   .thanks_title {
     font-size: 2.5rem;
+  }
+}
+
+/* Desktop: 651px = 40.6875em. Together with the mobile query above
+   there is no gap at 651px: every width gets exactly one layout. */
+@media screen and (min-width: 40.6875em) {
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    position: relative;
+  }
+
+  main {
+    flex-direction: row;
+    background-color: var(--White);
+    padding: 1.5rem;
+    border-radius: 10px;
+    /* Design card is 928 x 641px; was 700px, so the illustration shrank. */
+    max-width: 58rem;
+    margin-inline: auto;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .newsletter {
+    flex: 1 1 auto;
+  }
+
+  /* 25rem (400px) illustration + padding + gap = the 928px design card,
+     and the illustration height then sets the 641px card height. */
+  .newsletter_img {
+    flex: 0 0 25rem;
+  }
+
+  /* The footer is taken out of the flow so it no longer pushes the
+     card about 24px above centre, and it is light on the dark page
+     (white on charcoal is 11.46:1; the old link was 1.60:1). */
+  .attribution {
+    position: absolute;
+    bottom: 1rem;
+    left: 0;
+    right: 0;
+    color: var(--White);
+  }
+
+  .attribution a {
+    color: var(--White);
   }
 }
