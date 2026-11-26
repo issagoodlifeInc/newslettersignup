@@ -31,8 +31,10 @@
           <li>And much more!</li>
         </ul>
         <form class="signup-form" novalidate>
-          <label for="email">Email address</label>
-          <small class="error" id="email-error" aria-live="polite"></small>
+          <div class="form-label-row">
+            <label for="email">Email address</label>
+            <small class="error" id="email-error" aria-live="polite"></small>
+          </div>
           <input
             type="email"
             name="email"
@@ -50,7 +52,7 @@
       <div class="newsletter_img">
         <picture>
           <source
-            media="(min-width: 650px)"
+            media="(min-width: 651px)"
             srcset="./assets/images/illustration-sign-up-desktop.svg"
           />
           <img
