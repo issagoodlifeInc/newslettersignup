@@ -76,7 +76,7 @@ label,
   font-size: 0.7rem;
 }
 
-/* Label and error share one flex row instead of the old float: right. */
+/* Label and error share one flex row. */
 .form-label-row {
   display: flex;
   justify-content: space-between;
